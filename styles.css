@@ -187,18 +187,18 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    background-color: transparent;
     color: var(--white);
-    font-size: 0.9rem;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 1.6rem;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-icons a:hover {
-    transform: translateY(-3px);
-    background-color: var(--secondary-color);
+    transform: translateY(-2px) scale(1.1);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* Hero Section */
@@ -308,7 +308,7 @@ section {
 
 /* About Section */
 .about-section {
-    background-color: var(--light-bg);
+    background-color: #e8e8e8;
 }
 
 .about-content {
