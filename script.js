@@ -217,24 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Scroll olayında headerın davranışı
-    let lastScrollTop = 0;
-    const header = document.querySelector('header');
-    
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Yukarı kaydırma durumunda başlığı göster
-        if (scrollTop < lastScrollTop) {
-            header.style.top = '0';
-        } 
-        // Aşağı kaydırma ve belli bir eşiği geçme durumunda başlığı gizle
-        else if (scrollTop > 100) {
-            header.style.top = '-160px';
-        }
-        
-        lastScrollTop = scrollTop;
-    });
+    // Header artık sabit kalıyor - scroll davranışı kaldırıldı
 
     // Mobil menü toggle işlevi
     const addMobileMenuButton = () => {
