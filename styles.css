@@ -573,10 +573,9 @@ footer {
     display: none;
     position: fixed;
     top: 20px;
-    right: 20px;
+    left: 20px;
     width: 40px;
     height: 40px;
-    background-color: var(--primary-color);
     border-radius: 50%;
     justify-content: center;
     align-items: center;
@@ -605,6 +604,36 @@ footer {
 }
 
 /* Responsive Styles */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .logo-container {
+        min-width: 300px;
+        padding: 15px 20px;
+    }
+    
+    .logo-container img {
+        height: 80px;
+    }
+    
+    .main-nav {
+        padding: 15px 20px;
+    }
+    
+    .social-icons {
+        right: 20px;
+        gap: 12px;
+    }
+    
+    .social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+    }
+}
+
 @media (max-width: 992px) {
     .hero-content h1 {
         font-size: 2.5rem;
@@ -613,28 +642,62 @@ footer {
     .main-nav ul {
         gap: 15px;
     }
+    
+    .main-nav a {
+        font-size: 0.9rem;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .service-card, .contact-card {
+        padding: 25px;
+    }
+    
+    .service-icon, .contact-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .service-icon i, .contact-icon i {
+        font-size: 1.8rem;
+    }
+    
+    .result-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .result-icon i {
+        font-size: 1.8rem;
+    }
 }
 
 @media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    
-    .section-header h2 {
-        font-size: 2rem;
-    }
-    
-    .main-nav {
+    header {
         flex-direction: column;
+        align-items: stretch;
     }
     
-    .social-icons {
-        margin-left: 0;
-        margin-top: 15px;
+    .language-selector {
+        position: static;
+        background-color: rgba(0, 0, 0, 0.8);
     }
     
-    .hero-section {
-        height: 100vh;
+    .language-selector ul {
+        justify-content: center;
+        padding: 0 15px;
+    }
+    
+    .logo-container {
+        min-width: auto;
+        justify-content: center;
+        padding: 15px;
+    }
+    
+    .logo-container img {
+        height: 70px;
     }
     
     .mobile-menu-btn {
@@ -654,6 +717,7 @@ footer {
         transition: right 0.3s ease;
         z-index: 1000;
         color: var(--white);
+        margin-top: 0;
     }
     
     .main-nav.mobile-menu-open {
@@ -666,27 +730,344 @@ footer {
         gap: 20px;
     }
     
+    .main-nav li:not(:last-child)::after {
+        display: none;
+    }
+    
+    .main-nav a {
+        font-size: 1.1rem;
+        padding: 10px 0;
+    }
+    
     .social-icons {
+        position: static;
+        justify-content: center;
         margin-top: 30px;
+        transform: none;
+    }
+    
+    .social-icons a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        padding: 0 20px;
+    }
+    
+    .hero-content p {
+        padding: 0 20px;
+        font-size: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 50px 0;
+    }
+    
+    .about-content {
+        text-align: center;
+    }
+    
+    .about-image {
+        margin-top: 30px;
+    }
+    
+    .service-card, .contact-card {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .service-card h3, .result-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .service-icon, .contact-icon, .result-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .service-icon i, .contact-icon i, .result-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .footer-links ul {
+        gap: 20px;
+    }
+    
+    footer {
+        padding: 40px 0 20px;
     }
 }
 
 @media (max-width: 576px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .language-selector ul {
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .language-selector a {
+        font-size: 0.7rem;
+    }
+    
+    .logo-container {
+        padding: 10px;
+    }
+    
+    .logo-container img {
+        height: 60px;
+    }
+    
+    .mobile-menu-btn {
+        width: 35px;
+        height: 35px;
+        top: 15px;
+        left: 15px;
+    }
+    
+    .main-nav {
+        width: 280px;
+        padding: 70px 20px 20px;
+    }
+    
     .main-nav ul {
-        flex-direction: column;
-        align-items: center;
+        gap: 15px;
+    }
+    
+    .main-nav a {
+        font-size: 1rem;
+    }
+    
+    .social-icons {
         gap: 10px;
     }
     
-    .hero-section {
-        height: 100vh;
+    .social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
     }
     
     .hero-content h1 {
         font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
     }
     
     .section-header h2 {
         font-size: 1.8rem;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+    }
+    
+    .service-card, .contact-card, .result-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .service-card h3, .result-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .service-card p, .result-card p, .contact-card p {
+        font-size: 0.9rem;
+    }
+    
+    .service-icon, .contact-icon, .result-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+    
+    .service-icon i, .contact-icon i, .result-icon i {
+        font-size: 1.3rem;
+    }
+    
+    .footer-logo img {
+        height: 50px;
+    }
+    
+    .footer-links ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .footer-links a {
+        font-size: 0.8rem;
+    }
+    
+    footer {
+        padding: 30px 0 15px;
+    }
+    
+    .copyright {
+        font-size: 0.7rem;
+    }
+}
+
+/* Extra Small Devices - Ultra Mobile Responsive */
+@media (max-width: 400px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .language-selector ul {
+        gap: 8px;
+        padding: 0 5px;
+    }
+    
+    .language-selector a {
+        font-size: 0.6rem;
+        padding: 2px 4px;
+    }
+    
+    .logo-container img {
+        height: 50px;
+    }
+    
+    .mobile-menu-btn {
+        width: 30px;
+        height: 30px;
+        top: 10px;
+        left: 10px;
+        font-size: 0.8rem;
+    }
+    
+    .main-nav {
+        width: 250px;
+        padding: 60px 15px 15px;
+    }
+    
+    .social-icons a {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+        line-height: 1.1;
+    }
+    
+    .hero-content p {
+        font-size: 0.8rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    section {
+        padding: 30px 0;
+    }
+    
+    .service-card, .contact-card, .result-card {
+        padding: 12px;
+    }
+    
+    .service-icon, .contact-icon, .result-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 10px;
+    }
+    
+    .service-icon i, .contact-icon i, .result-icon i {
+        font-size: 1.1rem;
+    }
+    
+    .service-card h3, .result-card h3 {
+        font-size: 1rem;
+    }
+    
+    .service-card p, .result-card p, .contact-card p {
+        font-size: 0.8rem;
+    }
+    
+    .footer-logo img {
+        height: 40px;
+    }
+    
+    footer {
+        padding: 20px 0 10px;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .service-card:hover {
+        transform: none !important;
+    }
+    
+    .social-icons a:hover {
+        transform: none !important;
+    }
+    
+    .main-nav a:hover::after {
+        width: 0;
+    }
+    
+    /* Increase touch targets for mobile */
+    .main-nav a {
+        padding: 15px 0;
+        font-size: 1.2rem;
+    }
+    
+    .social-icons a {
+        min-width: 48px;
+        min-height: 48px;
+    }
+    
+    .language-selector a {
+        padding: 8px 12px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    header, .social-icons, .mobile-menu-btn {
+        display: none !important;
+    }
+    
+    .hero-section {
+        height: auto;
+        padding: 50px 0;
+    }
+    
+    .hero-video {
+        display: none;
+    }
+    
+    section {
+        page-break-inside: avoid;
+        padding: 20px 0;
+    }
+    
+    .service-card, .contact-card, .result-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd;
+    }
+    
+    * {
+        color: #000 !important;
+        background: transparent !important;
     }
 } 
