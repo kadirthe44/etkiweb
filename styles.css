@@ -94,7 +94,7 @@ header {
 
 .logo-container {
     background-color: transparent;
-    padding: 20px 30px;
+    padding: 20px 60px 20px 30px;
     display: flex;
     align-items: center;
     min-width: 350px;
@@ -314,6 +314,8 @@ section {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.8s ease;
+    align-items: center;
+    display: flex;
 }
 
 .about-content.animate-in {
@@ -328,6 +330,7 @@ section {
 
 .about-image {
     text-align: center;
+    padding-left: 200px;
 }
 
 .about-image img {
@@ -612,7 +615,7 @@ footer {
     
     .logo-container {
         min-width: 300px;
-        padding: 15px 20px;
+        padding: 15px 40px 15px 20px;
     }
     
     .logo-container img {
@@ -682,10 +685,10 @@ footer {
         position: relative;
     }
     
-         .language-selector {
-         position: static;
-         background-color: transparent;
-     }
+    .language-selector {
+        position: static;
+        background-color: transparent;
+    }
     
     .language-selector ul {
         justify-content: center;
@@ -695,7 +698,7 @@ footer {
     .logo-container {
         min-width: auto;
         justify-content: center;
-        padding: 15px;
+        padding: 15px 30px;
     }
     
     .logo-container img {
@@ -785,6 +788,8 @@ footer {
     
     .about-content {
         text-align: center;
+        flex-direction: column;
+        align-items: center;
     }
     
     .about-image {
@@ -833,7 +838,7 @@ footer {
     }
     
     .logo-container {
-        padding: 10px;
+        padding: 10px 20px;
     }
     
     .logo-container img {
