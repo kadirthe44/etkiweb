@@ -219,33 +219,73 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Header artık sabit kalıyor - scroll davranışı kaldırıldı
 
-    // Mobil menü toggle işlevi
-    const addMobileMenuButton = () => {
-        const nav = document.querySelector('.main-nav');
-        
-        // Mobil görünüm için menü butonu oluştur
-        const mobileMenuBtn = document.createElement('div');
-        mobileMenuBtn.className = 'mobile-menu-btn';
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        
-        // Butonu headerın içine ekle
-        document.querySelector('header').appendChild(mobileMenuBtn);
-        
-        // Menü butonuna tıklama olayı ekle
-        mobileMenuBtn.addEventListener('click', () => {
-            nav.classList.toggle('mobile-menu-open');
+        // Mobil menü toggle işlevi
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.main-nav');
+    
+    if (mobileMenuBtn && nav) {
+        // Click event
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMobileMenu();
         });
-    };
-
-    // Ekran genişliğini kontrol et ve gerekirse mobil menü ekle
-    if (window.innerWidth <= 768) {
-        addMobileMenuButton();
-    }
-
-    // Ekran boyutu değiştiğinde kontrol et
-    window.addEventListener('resize', () => {
-        if (window.innerWidth <= 768 && !document.querySelector('.mobile-menu-btn')) {
-            addMobileMenuButton();
+        
+        // Touch event for mobile devices
+        mobileMenuBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            toggleMobileMenu();
+        });
+        
+        // Keyboard support
+        mobileMenuBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMobileMenu();
+            }
+        });
+        
+        function toggleMobileMenu() {
+            nav.classList.toggle('mobile-menu-open');
+            const icon = mobileMenuBtn.querySelector('i');
+            
+            if (nav.classList.contains('mobile-menu-open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
         }
-    });
+        
+        // Menü linklerine tıklandığında menüyü kapat
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('mobile-menu-open');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Menü dışına tıklandığında menüyü kapat
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                if (nav.classList.contains('mobile-menu-open')) {
+                    nav.classList.remove('mobile-menu-open');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    }
 }); 
